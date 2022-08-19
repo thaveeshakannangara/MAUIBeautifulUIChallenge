@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UIMock.OnboardingPage"
+             Title="OnboardingPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#7d87f1">
+    <Grid Padding="30,40,20,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <VerticalStackLayout Grid.Row="0">
+
+            <Label Text="Ensure to keep" TextColor="White" FontSize="28" FontAttributes="Bold"
+                VerticalOptions="Center" HorizontalOptions="Start"/>
+
+            <Label Text="track of your" TextColor="White" FontSize="28" FontAttributes="Bold"
+                VerticalOptions="Center" HorizontalOptions="Start"/>
+
+            <Label Text="medicine" TextColor="White" FontSize="28" FontAttributes="Bold"
+                VerticalOptions="Center" HorizontalOptions="Start"/>
+
+        </VerticalStackLayout>
+
+         <IndicatorView Grid.Row="1" x:Name="indicatorView" IndicatorColor="DimGray"
+            IndicatorsShape="Circle" IndicatorSize="6" Margin="0,10,0,0"
+            SelectedIndicatorColor="LightGray" HorizontalOptions="Start" VerticalOptions="End" />
+
+        <CarouselView x:Name="OnboardingCarousel" Grid.Row="2" IndicatorView="indicatorView"
+                      HorizontalOptions="CenterAndExpand"
+                        Margin="5,10,5,0" ItemsSource="{Binding OnboardingList}" Position="{Binding Position,Mode=TwoWay}"
+                     HorizontalScrollBarVisibility="Never">
+            <CarouselView.HeightRequest>
+                <OnIdiom x:TypeArguments="x:Double">
+                    <OnIdiom.Phone>320</OnIdiom.Phone>
+                    <OnIdiom.Tablet>320</OnIdiom.Tablet>
+                </OnIdiom>
+            </CarouselView.HeightRequest>
+
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" SnapPointsType="MandatorySingle" />
+            </CarouselView.ItemsLayout>
+
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="Transparent" BorderColor="Transparent" CornerRadius="25" Margin="0" Padding="0">
+                        <Image Source="{Binding .}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                               >
+                            <Image.Aspect>
+                                <OnIdiom x:TypeArguments="Aspect">
+                                    <OnIdiom.Phone>AspectFit</OnIdiom.Phone>
+                                    <OnIdiom.Tablet>AspectFill</OnIdiom.Tablet>
+                                </OnIdiom>
+                            </Image.Aspect>
+                        </Image>
+                    </Frame>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+
+        <Grid Grid.Row="2" VerticalOptions="End" RowSpacing="0" ColumnSpacing="0" Padding="0"
+              Margin="0,0,0,40">
+
+            <Frame Grid.Row="0" Margin="0" BackgroundColor="White"
+                Opacity="0.3" Padding="5" CornerRadius="45"
+                WidthRequest="90" HeightRequest="90"
+                VerticalOptions="Center" HorizontalOptions="Center">
+
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ICommandNavToHomePage}"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame Grid.Row="0" BackgroundColor="White" Opacity="1" CornerRadius="30" Margin="0"
+                   WidthRequest="60" HeightRequest="60" 
+                   HorizontalOptions="Center" VerticalOptions="Center">
+
+                <Label Text="A" FontAttributes="Bold" FontSize="30"></Label>
+
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ICommandNavToHomePage}"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ICommandNavToHomePage}"/>
+            </Grid.GestureRecognizers>
+        </Grid>
+        
+    </Grid>
+</ContentPage>

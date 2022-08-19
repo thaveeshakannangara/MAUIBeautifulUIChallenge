@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UIMock.LoginPage"
+             Title="LoginPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+    <Grid Margin="40">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <VerticalStackLayout Grid.Row="1" Spacing="10">
+
+            <Label Text="Log In To Medicoer" FontSize="20" TextColor="Black" FontAttributes="Bold" Margin="0,0,0,20"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="Your Email"/>
+
+            <Entry Placeholder="youremail@domain.com" Keyboard="Email" />
+
+            <Label Text="Password"/>
+
+            <Entry Placeholder="password" IsPassword="True"/>
+
+            <Label Text="Forgot password?" HorizontalOptions="End" TextColor="Gray" FontSize="Small"/>
+
+            <Button Text="Log In" BackgroundColor="#e8bc65" Margin="0,10,0,0"/>
+
+            <Label HorizontalOptions="CenterAndExpand" Margin="0,10,0,0">
+
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="New User? " TextColor="Gray"/>
+                        <Span Text="Create Account" TextColor="#7d87f1"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
