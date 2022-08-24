@@ -32,27 +32,41 @@ namespace UIMock
         }
 
 
-        public ICommand ICommandNavToHomePage { get; set; }
+        public ICommand ICommandNavToLoginPage { get; set; }
 
         public OnboardingPageViewModel()
 		{
             onboardingList = new();
-            ICommandNavToHomePage = new Command(() => NavigateToHomePage());
+            ICommandNavToLoginPage = new Command(() => NavigateToLoginPage());
             InitilizeOnboardingList();
+            CarouselRotateService();
         }
 
-        private void NavigateToHomePage()
+        private void NavigateToLoginPage()
         {
             App.Current.MainPage = new NavigationPage(new LoginPage());
         }
 
         private void InitilizeOnboardingList()
         {
-            OnboardingList.Add("onboarding1.png");
-            OnboardingList.Add("onboarding2.png");
-            OnboardingList.Add("onboarding3.png");
-            OnboardingList.Add("onboarding4.png");
+            OnboardingList.Add("untitled4.png");
+            OnboardingList.Add("untitled4.png");
+            OnboardingList.Add("untitled4.png");
+            OnboardingList.Add("untitled4.png");
         }
 
+        private async void CarouselRotateService()
+        {
+            if (OnboardingList != null && OnboardingList.Any())
+            {
+                using (var timer = new PeriodicTimer(TimeSpan.FromSeconds(5)))
+                {
+                    while (await timer.WaitForNextTickAsync())
+                    {
+                        Position = (Position + 1) % OnboardingList.Count;
+                    }
+                }
+            }
+        }
     }
 }

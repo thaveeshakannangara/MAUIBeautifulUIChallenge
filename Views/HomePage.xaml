@@ -1,12 +1,210 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UIMock.HomePage"
-             Title="HomePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="UIMock.HomePage"
+    Title="HomePage"
+    NavigationPage.HasNavigationBar="False"
+    BackgroundColor="#fafafa">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="0" Margin="30,10,30,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                  
+                <Image Grid.Column="0" Source="menu64.png" HeightRequest="25" HorizontalOptions="Start"
+                       WidthRequest="25" BackgroundColor="Transparent"/>
+
+                <StackLayout Grid.Column="1">
+                    <Grid>
+
+                        <Image Grid.Row="0" Grid.Column="0" Source="bell48.png" HeightRequest="35"
+                        HorizontalOptions="End" VerticalOptions="Start" Margin="0,0,0,0"
+                        WidthRequest="35" BackgroundColor="Transparent"/>
+
+                        <Ellipse Grid.Row="0" Grid.Column="0" Fill="Red" Stroke="Transparent"
+                        StrokeThickness="0" WidthRequest="12" HeightRequest="12"
+                        HorizontalOptions="End"  VerticalOptions="Start"/>
+
+                    </Grid>
+                </StackLayout>
+                
+                <Frame Grid.Column="2" Padding="0" WidthRequest="40" HeightRequest="40" BorderColor="Transparent"
+                       CornerRadius="20" IsClippedToBounds="True">
+
+                    <Image Grid.Column="2" Source="me.jpg" HorizontalOptions="Center" Aspect="AspectFit"
+                           BackgroundColor="Transparent"/>
+                </Frame>
+
+            </Grid>
+        </StackLayout>
+
+        <VerticalStackLayout Grid.Row="1" Margin="30,30,30,10">
+            <Label Text="Hello," TextColor="Gray" HorizontalOptions="Start" FontSize="18"/>
+            <Label Text="Elina Johnson" TextColor="Black" FontAttributes="Bold" FontFamily="LatoBold"
+                    HorizontalOptions="Start" FontSize="24"/>
+        </VerticalStackLayout>
+
+        <StackLayout Grid.Row="2" Margin="30,10,30,10">
+            <Grid RowSpacing="10" ColumnSpacing="30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="80"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+
+                <Frame Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" BackgroundColor="#f7d5d2" HeightRequest="160"
+                        BorderColor="Transparent" CornerRadius="20" VerticalOptions="CenterAndExpand">
+
+                    <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
+
+                        <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="45"
+                                CornerRadius="22" BorderColor="Transparent" Padding="0">
+
+                            <Label Text="&#xf043;" FontFamily="FontAwesomeSolid" TextColor="#e8bc65"
+                                FontSize="22" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                        </Frame>
+                        <Label Text="80-82" TextColor="Black" FontFamily="LatoBold" FontSize="24"/>
+                        <Label Text="Glocose" TextColor="Gray"/>
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+                <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#fbe6b8"
+                        BorderColor="Transparent" CornerRadius="20">
+                    <Grid ColumnSpacing="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Frame Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" BackgroundColor="White"
+                                HeightRequest="40" WidthRequest="40" CornerRadius="20" BorderColor="Transparent">
+
+                            <Label Text="&#xf004;" FontFamily="FontAwesomeSolid" TextColor="#e8bc65"
+                                FontSize="22" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                        </Frame>
+                            <Label Grid.Row="0" Grid.Column="1" Text="08" TextColor="Black" FontFamily="LatoBold"
+                                FontSize="24"/>
+                        <Label Grid.Row="1" Grid.Column="1" Text="Pills per day" TextColor="Gray"/>
+                    </Grid>
+
+                </Frame>
+
+                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#e9eafd"
+                        BorderColor="Transparent" CornerRadius="20">
+                    <Grid ColumnSpacing="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Frame Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" BackgroundColor="White"
+                                HeightRequest="40" WidthRequest="40" CornerRadius="20" BorderColor="Transparent">
+
+                            <Label Text="&#xf46b;" FontFamily="FontAwesomeSolid" TextColor="#e8bc65"
+                                FontSize="22" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+
+                        </Frame>
+                            <Label Grid.Row="0" Grid.Column="1" Text="87 bp" TextColor="Black"
+                                FontFamily="LatoBold" FontSize="24"/>
+                        <Label Grid.Row="1" Grid.Column="1" Text="Heart rate" TextColor="Gray"/>
+                    </Grid>
+
+                </Frame>
+
+            </Grid>
+        </StackLayout>
+
+        <StackLayout Grid.Row="3" Margin="30,10,30,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Upcoming Doses" Grid.Row="0" Grid.Column="0" TextColor="Black" FontSize="18" FontAttributes="None"
+                        HorizontalOptions="Start" VerticalOptions="Center" FontFamily="LatoBold" />
+
+                <Label Text="See all" Grid.Row="0" Grid.Column="1" TextColor="Blue" FontSize="12"
+                        HorizontalOptions="End" VerticalOptions="Center" />
+            </Grid>
+               
+        </StackLayout>
+
+        <CollectionView Grid.Row="4" ItemsSource="{Binding ReminderList}" Margin="20,20,20,0" SelectionMode="Single"
+            ItemSizingStrategy="MeasureAllItems" HorizontalScrollBarVisibility="Always" VerticalOptions="Start"
+            BackgroundColor="Transparent">
+
+            <CollectionView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+        </CollectionView.ItemsLayout>
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame HasShadow="False" BackgroundColor="White" BorderColor="#f0ebeb" Padding="15"
+                        CornerRadius="20" IsClippedToBounds="True" Margin="2">
+                    <Grid RowSpacing="5" ColumnSpacing="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <BoxView Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Color="#7d87f1" VerticalOptions="FillAndExpand" WidthRequest="3" />
+                            
+                        <Label Grid.Row="0"  Grid.Column="1" Text="{Binding Medicine}" FontAttributes="Bold" FontSize="15"
+                            HorizontalTextAlignment="Start" VerticalOptions="Center" FontFamily="LatoBold" />
+
+                        <Label Grid.Row="1"  Grid.Column="1" Text="{Binding Dose}" FontAttributes="Bold" FontSize="15"
+                            HorizontalTextAlignment="Start" VerticalOptions="Center" FontFamily="LatoBold" Margin="0,0,0,10" />
+
+                        <Button Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Text="Mark Taken" BackgroundColor="#e8bc65"
+                                Padding="10" HeightRequest="30"/>
+
+                        <Label Grid.Row="2"  Grid.Column="1" Text="{Binding Time}" FontAttributes="Bold" FontSize="12"
+                            HorizontalTextAlignment="Start" VerticalOptions="Center" FontFamily="LatoRegular" TextColor="Gray" />
+
+                        <HorizontalStackLayout Grid.Row="2"  Grid.Column="2" HorizontalOptions="Center"
+                                               VerticalOptions="Center">
+                            <Label Text="&#xf017;" FontFamily="FontAwesomeSolid" TextColor="Gray" FontSize="16" Margin="0,0,3,0" />
+                            <Label Text="2hr" FontAttributes="Bold" FontSize="12" FontFamily="LatoRegular" TextColor="Gray"/>
+                        </HorizontalStackLayout>
+                       
+                    </Grid>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+
+    </Grid>
+
+    
 </ContentPage>

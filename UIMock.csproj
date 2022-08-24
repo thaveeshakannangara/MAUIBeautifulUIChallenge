@@ -43,6 +43,14 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+		<MauiIcon Include="Resources\Images\menu64.png" />
+		<MauiIcon Include="Resources\Images\bell48.png" />
+		<MauiIcon Include="Resources\Images\onboarding1.png" />
+		<MauiIcon Include="Resources\Images\onboarding2.png" />
+		<MauiIcon Include="Resources\Images\onboarding3.png" />
+		<MauiIcon Include="Resources\Images\onboarding4.png" />
+		<MauiIcon Include="Resources\Images\icon.png" />
+		<MauiIcon Include="Resources\Images\untitled4.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -50,6 +58,15 @@
 	  <None Remove="ViewModels\" />
 	  <None Remove="Resources\Images\" />
 	  <None Remove="ViewModels\Base\" />
+	  <None Remove="Resources\Fonts\Lato-LightItalic.ttf" />
+	  <None Remove="Resources\Images\menu64.png" />
+	  <None Remove="Resources\Images\bell48.png" />
+	  <None Remove="Resources\Images\onboarding1.png" />
+	  <None Remove="Resources\Images\onboarding2.png" />
+	  <None Remove="Resources\Images\onboarding3.png" />
+	  <None Remove="Resources\Images\onboarding4.png" />
+	  <None Remove="Resources\Images\icon.png" />
+	  <None Remove="Resources\Images\Untitled4.png" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Views\" />
