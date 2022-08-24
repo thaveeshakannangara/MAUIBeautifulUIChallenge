@@ -1,8 +1,6 @@
 # Medicine Tracker App - .NET MAUI UI Challenge
 
-_(.NET MAUI Beautiful UI Challenge)_
-
-Medicine Tracker App created for UI Challenge made with .NET MAUI.
+_(Medicine Tracker App created for UI Challenge made with .NET MAUI.)_
 
 ![Medicine Tracker App](images/mockup.jpg)
 
