@@ -44,7 +44,7 @@ namespace UIMock
 
         private void NavigateToLoginPage()
         {
-            App.Current.MainPage = new NavigationPage(new LoginPage());
+            App.Current.MainPage.Navigation.PushAsync(new LoginPage());
         }
 
         private void InitilizeOnboardingList()

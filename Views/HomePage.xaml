@@ -42,8 +42,15 @@
                 <Frame Grid.Column="2" Padding="0" WidthRequest="40" HeightRequest="40" BorderColor="Transparent"
                        CornerRadius="20" IsClippedToBounds="True">
 
-                    <Image Grid.Column="2" Source="me.jpg" HorizontalOptions="Center" Aspect="AspectFit"
-                           BackgroundColor="Transparent"/>
+                    <Image Source="me.jpg" HorizontalOptions="Center" BackgroundColor="Transparent">
+                        <Image.Aspect>
+                            <OnPlatform x:TypeArguments="Aspect">
+                                <On Platform="iOS" Value="AspectFit"/>
+                                <On Platform="Android" Value="AspectFill"/>
+                            </OnPlatform>
+
+                        </Image.Aspect>
+                    </Image>
                 </Frame>
 
             </Grid>
@@ -56,7 +63,14 @@
         </VerticalStackLayout>
 
         <StackLayout Grid.Row="2" Margin="30,10,30,10">
-            <Grid RowSpacing="10" ColumnSpacing="30">
+            <Grid RowSpacing="10">
+                  <Grid.ColumnSpacing>
+                      <OnPlatform x:TypeArguments="x:Double">
+                          <On Platform="iOS" Value="30"/>
+                          <On Platform="Android" Value="10"/>
+                      </OnPlatform>
+                  </Grid.ColumnSpacing>
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="80"/>
                     <RowDefinition Height="80"/>
@@ -85,8 +99,9 @@
                 </Frame>
 
                 <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#fbe6b8"
-                        BorderColor="Transparent" CornerRadius="20">
-                    <Grid ColumnSpacing="10">
+                        BorderColor="Transparent" CornerRadius="20" Padding="0">
+                    
+                    <Grid ColumnSpacing="10" VerticalOptions="Center" HorizontalOptions="Center">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
@@ -98,20 +113,22 @@
 
                         <Frame Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" BackgroundColor="White"
                                 HeightRequest="40" WidthRequest="40" CornerRadius="20" BorderColor="Transparent">
-
-                            <Label Text="&#xf004;" FontFamily="FontAwesomeSolid" TextColor="#e8bc65"
-                                FontSize="22" HorizontalOptions="Center" VerticalOptions="Center"></Label>
                         </Frame>
-                            <Label Grid.Row="0" Grid.Column="1" Text="08" TextColor="Black" FontFamily="LatoBold"
+
+                        <Label Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Text="&#xf004;" FontFamily="FontAwesomeSolid" TextColor="#e8bc65"
+                                FontSize="22" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+
+                        <Label Grid.Row="0" Grid.Column="1" Text="08" TextColor="Black" FontFamily="LatoBold"
                                 FontSize="24"/>
+
                         <Label Grid.Row="1" Grid.Column="1" Text="Pills per day" TextColor="Gray"/>
                     </Grid>
 
                 </Frame>
 
                 <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#e9eafd"
-                        BorderColor="Transparent" CornerRadius="20">
-                    <Grid ColumnSpacing="10">
+                        BorderColor="Transparent" CornerRadius="20" Padding="0">
+                    <Grid ColumnSpacing="10" HorizontalOptions="Center" VerticalOptions="Center">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
@@ -123,13 +140,14 @@
 
                         <Frame Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" BackgroundColor="White"
                                 HeightRequest="40" WidthRequest="40" CornerRadius="20" BorderColor="Transparent">
+                        </Frame>
 
-                            <Label Text="&#xf46b;" FontFamily="FontAwesomeSolid" TextColor="#e8bc65"
+                        <Label Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Text="&#xf46b;" FontFamily="FontAwesomeSolid" TextColor="#e8bc65"
                                 FontSize="22" HorizontalOptions="Center" VerticalOptions="Center"></Label>
 
-                        </Frame>
-                            <Label Grid.Row="0" Grid.Column="1" Text="87 bp" TextColor="Black"
+                        <Label Grid.Row="0" Grid.Column="1" Text="87 bp" TextColor="Black"
                                 FontFamily="LatoBold" FontSize="24"/>
+
                         <Label Grid.Row="1" Grid.Column="1" Text="Heart rate" TextColor="Gray"/>
                     </Grid>
 
@@ -187,7 +205,14 @@
                             HorizontalTextAlignment="Start" VerticalOptions="Center" FontFamily="LatoBold" Margin="0,0,0,10" />
 
                         <Button Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Text="Mark Taken" BackgroundColor="#e8bc65"
-                                Padding="10" HeightRequest="30"/>
+                            HeightRequest="30">
+                            <Button.Padding>
+                                <OnPlatform x:TypeArguments="Thickness">
+                                    <On Platform="iOS" Value="10,10,10,10"/>
+                                    <On Platform="Android" Value="10,5,10,5"/>
+                                </OnPlatform>
+                            </Button.Padding>
+                        </Button>
 
                         <Label Grid.Row="2"  Grid.Column="1" Text="{Binding Time}" FontAttributes="Bold" FontSize="12"
                             HorizontalTextAlignment="Start" VerticalOptions="Center" FontFamily="LatoRegular" TextColor="Gray" />
