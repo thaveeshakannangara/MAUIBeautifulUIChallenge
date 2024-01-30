@@ -20,7 +20,7 @@ namespace UIMock
 
 		public HomePageViewModel()
 		{
-			_reminderList = new();
+			_reminderList = [];
 			InitList();
         }
 
@@ -46,9 +46,9 @@ namespace UIMock
 
 	public class MedicineReminderModel
 	{
-		public string Medicine { get; set; }
-        public string Dose { get; set; }
-        public string Time { get; set; }
+		public string Medicine { get; set; } = string.Empty;
+        public string Dose { get; set; } = string.Empty;
+        public string Time { get; set; } = string.Empty;
     }
 
 }

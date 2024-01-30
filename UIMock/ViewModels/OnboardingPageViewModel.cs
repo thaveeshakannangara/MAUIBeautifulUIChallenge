@@ -36,15 +36,15 @@ namespace UIMock
 
         public OnboardingPageViewModel()
 		{
-            onboardingList = new();
+            onboardingList = [];
             ICommandNavToLoginPage = new Command(() => NavigateToLoginPage());
             InitilizeOnboardingList();
             CarouselRotateService();
         }
 
-        private void NavigateToLoginPage()
+        private static void NavigateToLoginPage()
         {
-            App.Current.MainPage.Navigation.PushAsync(new LoginPage());
+            App.Current?.MainPage?.Navigation.PushAsync(new LoginPage());
         }
 
         private void InitilizeOnboardingList()
@@ -57,14 +57,12 @@ namespace UIMock
 
         private async void CarouselRotateService()
         {
-            if (OnboardingList != null && OnboardingList.Any())
+            if (OnboardingList != null && OnboardingList.Count != 0)
             {
-                using (var timer = new PeriodicTimer(TimeSpan.FromSeconds(5)))
+                using var timer = new PeriodicTimer(TimeSpan.FromSeconds(5));
+                while (await timer.WaitForNextTickAsync())
                 {
-                    while (await timer.WaitForNextTickAsync())
-                    {
-                        Position = (Position + 1) % OnboardingList.Count;
-                    }
+                    Position = (Position + 1) % OnboardingList.Count;
                 }
             }
         }

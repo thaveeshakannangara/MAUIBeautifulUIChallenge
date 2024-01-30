@@ -12,9 +12,9 @@ namespace UIMock
             ICommandNavToHomePage = new Command(() => NavigateToHomePage());
         }
 
-        private void NavigateToHomePage()
+        private static void NavigateToHomePage()
         {
-            App.Current.MainPage.Navigation.PushAsync(new HomePage());
+            App.Current?.MainPage?.Navigation.PushAsync(new HomePage());
         }
     }
 }
