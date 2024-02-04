@@ -15,8 +15,8 @@ namespace UIMock
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
-            [CallerMemberName] string propertyName = "",
-            Action onChanged = null)
+                                      [CallerMemberName] string? propertyName = null,
+                                      Action? onChanged = default)
         {
             if (EqualityComparer<T>.Default.Equals(backingStore, value))
                 return false;
@@ -28,15 +28,17 @@ namespace UIMock
         }
 
         #region INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+
+        public event PropertyChangedEventHandler? PropertyChanged = null;
+
+        protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
-            var changed = PropertyChanged;
-            if (changed == null)
+            if (string.IsNullOrWhiteSpace(propertyName))
                 return;
 
-            changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
         #endregion
     }
 }
